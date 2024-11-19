@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		{% if title %}
+		<title>{{ title }}</title>
+
+		{% else %}
+		<title>Doc</title>
+		{% endif %}
+	</head>
+	<body>
+		<header>
+			<h1>Welcome {{ user|capitalize }}</h1>
+
+			<nav>
+				<ul>
+					<li href="{{ url_for('home')}}">Home</li>
+					<li>About</li>
+				</ul>
+			</nav>
+		</header>
+
+		{% block content %} {% endblock content %}
+	</body>
+</html>
