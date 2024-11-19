@@ -14,6 +14,9 @@
 	<body>
 		<header>
 			<h1>Welcome {{ user|capitalize }}</h1>
+			{% with messages = get_flashed_messages(with_categories = true) %} {% if
+			messages %} {% for message in messages %} {{ message }} {% endfor %} {%
+			endif %} {% endwith %}
 
 			<nav>
 				<ul>

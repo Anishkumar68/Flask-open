@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, url_for, flash
 import os
 from dotenv import load_dotenv
 from flask_wtf import CSRFProtect
@@ -22,9 +22,13 @@ def home():
     return render_template("home.html", title="home", user="anish")
 
 
-@app.route("/signup")
+@app.route("/signup", methods=["GET", "POST"])
 def signup():
     form = RegistrationForm()
+    if form.validate_on_submit():
+        flash(f"Account created as {form.user.data}!")
+        return redirect(url_for("home"))
+
     return render_template("signup.html", title="Registration", form=form)
 
 
