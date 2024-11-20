@@ -8,5 +8,6 @@ __pycache__/
 
  test.py
 
- .env
+.env
+ 
 env
