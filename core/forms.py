@@ -33,7 +33,7 @@ class loginForm(FlaskForm):
         "Email", widget=EmailInput(), validators=[Length(min=6, max=35), Email()]
     )
 
-    confirm = PasswordField(
+    Password = PasswordField(
         "Password",
         widget=PasswordInput(),
     )

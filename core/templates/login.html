@@ -1,0 +1,35 @@
+{% extends 'base.html' %} {% block content %}
+
+<form action="" method="POST">
+	{{ form.hidden_tag() }}
+	<fieldset class="form-group">
+		<legend>Login</legend>
+
+		<div class="form-group">
+			{{ form.email.label(class="form-control-label") }} {% if form.email.errors
+			%} {{ form.email(class="form-control form-control-lg is-invalid") }}
+			<div class="invalid-feedback">
+				{% for error in form.email.errors %}
+				<span>{{ error }}</span>
+				{% endfor %}
+			</div>
+			{% else %} {{ form.email(class="form-control form-control-lg") }} {% endif
+			%}
+		</div>
+		<div class="form-group">
+			{{ form.Password.label(class="form-control-label") }} {% if
+			form.Password.errors %} {{ form.Password(class="form-control
+			form-control-lg is-invalid") }}
+			<div class="invalid-feedback">
+				{% for error in form.Password.errors %}
+				<span>{{ error }}</span>
+				{% endfor %}
+			</div>
+			{% else %} {{ form.Password(class="form-control form-control-lg") }} {%
+			endif %}
+		</div>
+	</fieldset>
+	<div class="form-group">{{ form.Submit(class="btn btn-outline-info") }}</div>
+
+	{% endblock content %}
+</form>
